@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panel Admin | Cashfood</title>
+  <link rel="stylesheet" href="../css/index.css">
+  <link rel="stylesheet" href="../css/menu_kiosco.css">
+  <link rel="icon" type="image/png" href="../imagenes/Logo/Cashfood.png">
+</head>
+<body>
+  <header>
+    <img src="../imagenes/logo/Cashfood.png" alt="Logo" class="logoCashfood">
+    <nav class="navegacion">
+      <a href="../index.html">Inicio</a>
+      <a href="productos.html">Productos</a>
+      <a href="acerca.html">Acerca</a>
+      <a href="carrito.html" class="btn-carrito">
+        <ion-icon name="cart"></ion-icon>
+        <span id="contador-carrito" style="display: none;">0</span>
+      </a>
+      <a href="historial.html" id="btn-historial" style="display: none;">Mis Facturas</a>
+      <button class="btnlogin-popup">Login</button>
+    </nav>
+  </header>
+
+  <main class="seccion-menu">
+    <h2 class="subtitulo-menu">Panel de Administración — Cafétin Don Domingo</h2>
+
+    <section style="max-width:1000px; margin: 20px auto;">
+      <h3>Agregar producto</h3>
+      <form id="form-agregar-producto" style="display:grid; gap:10px;">
+        <input type="text" id="p-nombre" placeholder="Nombre del producto" required />
+        <input type="text" id="p-categoria" placeholder="Categoría" required />
+        <input type="number" id="p-precio" placeholder="Precio" step="0.01" required />
+        <input type="text" id="p-imagen" placeholder="URL de imagen (opcional)" />
+        <input type="file" id="p-imagen-file" accept="image/*" />
+        <button class="btn" type="submit">Agregar producto</button>
+      </form>
+
+      <h3 style="margin-top:20px;">Productos actuales</h3>
+      <div id="admin-productos-lista" style="display:grid; gap:12px; margin-top:12px;"></div>
+    </section>
+  </main>
+
+  <script src="../js/utilidades/data.js"></script>
+  <script src="../js/utilidades/carrito_utilidades.js"></script>
+  <script src="../js/admin_panel.js"></script>
+  <script src="../js/index.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

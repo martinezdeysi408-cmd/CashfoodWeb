@@ -1,0 +1,201 @@
+/* =============================================== */
+/* Archivo: menu_kiosco.css                        */
+/* Propósito: Estilos para la página del menú del kiosco. */
+/* =============================================== */
+
+/* Importamos el CSS principal para mantener la consistencia */
+@import url('index.css');
+
+/* ----------------------------------------------- */
+/* SECCIÓN PRINCIPAL Y BANNER */
+/* ----------------------------------------------- */
+.seccion-menu {
+    width: 100%;
+    max-width: 1000px;
+    padding: 100px 20px 40px 20px;
+    text-align: center;
+    margin: auto; /* Centrar el contenedor del menú */
+}
+
+.titulo-kiosco {
+    font-size: 3em;
+    color: var(--color-text);
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.banner-kiosco {
+    width: 100%;
+    max-height: 250px; /* Limita la altura del banner */
+    object-fit: cover; /* Asegura que la imagen cubra el área sin distorsionarse */
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 40px;
+}
+
+.subtitulo-menu {
+    font-size: 2em;
+    color: var(--color-text); /* Usamos el color de texto oscuro */
+    margin-bottom: 30px;
+    font-weight: 700;
+}
+
+/* ----------------------------------------------- */
+/* CONTROLES (BÚSQUEDA Y FILTRO) */
+/* ----------------------------------------------- */
+.controles-menu {
+    display: flex;
+    flex-wrap: wrap; /* Para que se ajusten en móviles */
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-busqueda, .select-filtro {
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    width: 350px; /* Ancho fijo para control */
+    max-width: 100%;
+}
+
+/* ----------------------------------------------- */
+/* CONTENEDOR DE PRODUCTOS (GRID) */
+/* ----------------------------------------------- */
+.productos-contenedor {
+    display: grid; /* CRÍTICO: Usa grid para crear columnas */
+    /* Crea columnas que se auto-ajustan: al menos 300px, máx 1fr */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px; /* Espacio entre las tarjetas */
+    padding: 30px 0;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* ----------------------------------------------- */
+/* ESTILOS PARA LA TARJETA DE CADA PRODUCTO EN EL MENÚ */
+/* ----------------------------------------------- */
+.producto-tarjeta-menu {
+    background-color: #f8f8f8;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Importante para que la imagen no sobresalga */
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform 0.3s ease;
+}
+
+.producto-tarjeta-menu:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* ----------------------------------------------- */
+/* ESTILOS PARA LA IMAGEN DEL PRODUCTO */
+/* ----------------------------------------------- */
+.producto-imagen-menu {
+    width: 100%;
+    height: 200px; /* Altura fija para mantener la proporción de las tarjetas */
+    object-fit: cover; /* CRÍTICO: Recorta la imagen para llenar el área sin distorsionarse */
+    border-bottom: 1px solid #eee;
+}
+
+/* ----------------------------------------------- */
+/* ESTILOS PARA LA INFORMACIÓN DEL PRODUCTO */
+/* ----------------------------------------------- */
+.producto-info {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Permite que esta sección ocupe el espacio restante */
+}
+
+.producto-nombre-menu {
+    font-size: 1.5em;
+    color: var(--color-text);
+    margin-bottom: 5px;
+}
+
+.producto-descripcion-menu {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+    flex-grow: 1; /* Empuja el footer hacia abajo si la descripción es corta */
+}
+
+.producto-precio-menu {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--color-price); /* Color para el precio */
+}
+.producto-footer-menu {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.producto-precio-menu {
+    font-size: 1.4em;
+    font-weight: bold;
+    color: var(--color-price);
+}
+
+.btn-agregar-menu {
+    background-color: var(--color-primary);
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    transition: transform .12s ease, box-shadow .12s ease;
+    /* Ensure the button hugs the right edge inside a flex footer */
+    margin-left: auto;
+}
+
+.btn-agregar-menu:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+}
+
+/* ----------------------------------------------- */
+/* ESTILOS YA EXISTENTES EN OTROS ARCHIVOS */
+/* ----------------------------------------------- */
+
+/* Estilos de la navegación y el contador del carrito (tomados del index.css/index.html) */
+.btn-carrito {
+    position: relative;
+    color: var(--color-text);
+    font-size: 1.5em;
+}
+
+#contador-carrito {
+    background-color: var(--color-secondary);
+    color: white;
+    font-size: 0.7em;
+    font-weight: bold;
+    border-radius: 50%; /* Lo hace circular */
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute; /* Posiciona el contador sobre el carrito */
+    top: -5px;
+    right: -10px;
+    pointer-events: none; /* Asegura que el clic pase al ícono */
+}
+
+.navegacion {
+    display: flex; 
+    align-items: center; 
+}

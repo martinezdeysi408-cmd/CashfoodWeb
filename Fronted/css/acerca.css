@@ -1,0 +1,136 @@
+/* ========================================= */
+/* ESTILOS ESPECÍFICOS PARA ACERCA.HTML */
+/* ========================================= */
+
+.acerca-principal {
+    /* Mueve el contenido hacia abajo para que el header no lo tape */
+    padding-top: 120px; 
+    padding-bottom: 50px;
+    width: 100%;
+    /* Centra el contenedor en la pantalla */
+    display: flex;
+    justify-content: center;
+}
+
+.acerca-contenedor {
+    /* Define el ancho máximo para lectura en PC */
+    max-width: 900px;
+    width: 90%; 
+    /* Fondo para que el texto sea legible sobre la imagen de fondo */
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.titulo-acerca {
+    font-size: 2.5em;
+    color: var(--color-text);
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.mision-vision p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: var(--color-text);
+}
+
+.mision-vision h2 {
+    font-size: 1.8em;
+    color: var(--color-secondary); /* Color acento */
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 5px;
+}
+
+/* --- Estilos de Contacto --- */
+.contacto-info {
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+.contacto-info h2 {
+    font-size: 2em;
+    color: var(--color-text);
+    margin-bottom: 20px;
+}
+
+.opciones-contacto p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: var(--color-text);
+}
+
+.opciones-contacto a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.opciones-contacto a:hover {
+    text-decoration: underline;
+}
+
+/* Ajustes para que se vea bien en Móvil */
+@media (max-width: 768px) {
+    .acerca-contenedor {
+        padding: 20px;
+        width: 95%;
+    }
+    .titulo-acerca {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+    .mision-vision p, .opciones-contacto p {
+        font-size: 1em;
+    }
+}
+
+/* --- Secciones diferenciadas --- */
+.seccion {
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid #ccc;
+}
+
+.subtitulo-acerca {
+    font-size: 2em;
+    color: var(--color-secondary);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contenido-texto p {
+    font-size: 1.1em;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    color: #444;
+}
+
+/* --- Imágenes ilustrativas --- */
+.imagen-ilustrativa {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.imagen-ilustrativa img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* --- Responsive para móviles --- */
+@media (max-width: 768px) {
+    .subtitulo-acerca {
+        font-size: 1.5em;
+    }
+    .contenido-texto p {
+        font-size: 1em;
+    }
+}

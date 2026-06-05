@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Carrito | Cashfood</title>
+    <link rel="stylesheet" href="../css/index.css"> 
+    <link rel="stylesheet" href="../css/carrito.css"> </head>
+    <link rel="icon" type="image/png" href="../imagenes/Logo/Cashfood.png">
+<body>
+    <header>
+        <img src="../imagenes/logo/Cashfood.png" alt="Logo de la empresa" class="logoCashfood">
+        <nav class="navegacion">
+            <a href="../index.html">Inicio</a>
+            <a href="productos.html">Productos</a>
+            <a href="acerca.html">Acerca</a>
+
+            <a href="carrito.html" class="btn-carrito">
+               <ion-icon name="cart"></ion-icon>
+               <span id="contador-carrito" style="display: none;">0</span> 
+            </a>
+
+            <a href="historial.html" id="btn-historial" style="display: none;">Mis Facturas</a>
+
+            <button class="btnlogin-popup">Login</button>
+        </nav> 
+    </header>
+
+    <div class="contenedor"> 
+
+    <span class="icon-close"> 
+        <ion-icon name="close"></ion-icon>
+    </span>
+    
+    <div class="form-contenedor login">
+        <h2>Iniciar sesión</h2>
+        <form action="#">
+            
+            <div class="input-contenedor">
+                <span class="icon">
+                    <ion-icon name="key-outline"></ion-icon> 
+                </span>
+                <input type="text" required placeholder="" name="carnet"> 
+                <label>Carné Institucional</label>
+            </div>
+
+            <div class="input-contenedor">
+                <span class="icon">
+                    <ion-icon name="mail"></ion-icon>
+                </span>
+                <input type="email" required placeholder="">
+                <label>Gmail</label>
+            </div>
+            
+            <div class="input-contenedor">
+                <span class="icon">
+                    <ion-icon name="lock-closed"></ion-icon>
+                </span>
+                <input type="password" required placeholder="">
+                <label>Contraseña</label>
+            </div>
+            
+            <div class="recuerdame-meolvidaste"> 
+                <label><input type="checkbox" checked>Recuérdame</label>
+                <a href="#">Olvidaste tu contraseña?</a>
+            </div>
+            <button type="submit" class="btn">Login</button>
+            <div class="login-register">
+                <p>¿No tienes una cuenta? <a href="#" class="register-link">Registrar</a></p> 
+            </div>
+        </form>
+    </div>
+
+    <div class="form-contenedor register">
+        <h2>Registrarse</h2>
+        <form action="#">
+            <div class="input-contenedor">
+                <span class="icon"><ion-icon name="person"></ion-icon></span>
+                <input type="text" required placeholder="" name="nombre">
+                <label>Nombre de usuario</label>
+            </div>
+            <div class="input-contenedor">
+                <span class="icon"><ion-icon name="mail"></ion-icon></span>
+                <input type="email" required placeholder="">
+                <label>Gmail</label>
+            </div>
+            <div class="input-contenedor">
+                <span class="icon"><ion-icon name="key-outline"></ion-icon></span>
+                <input type="text" required placeholder="" name="carnet">
+                <label>Carné Institucional</label>
+            </div>
+            <div class="input-contenedor">
+                <span class="icon"><ion-icon name="lock-closed"></ion-icon></span>
+                <input type="password" required placeholder="">
+                <label>Contraseña</label>
+            </div>
+            <div class="recuerdame-meolvidaste"> 
+                <label><input type="checkbox"> Estoy de acuerdo con los terminos y condiciones</label>
+            </div>
+            <button type="submit" class="btn">Registrarse</button>
+            <div class="login-register">
+                <p>¿Ya tienes una cuenta? <a href="#" class="login-link">Login</a></p> 
+            </div>
+        </form>
+    </div>
+ </div>
+
+    <main class="seccion-carrito">
+        <h1 class="titulo-principal">Tu Carrito de Preorden</h1>
+
+        <div class="contenido-carrito-grid">
+            
+            <div class="carrito-lista">
+                <h2 class="subtitulo-carrito">Artículos de la Orden</h2>
+                <div id="items-carrito-contenedor">
+                    <p>El carrito está vacío.</p>
+                </div>
+                <a href="../index.html" class="btn-volver">← Seguir Comprando</a>
+            </div>
+
+            <div class="carrito-resumen">
+             <h2 class="subtitulo-carrito">Resumen de la Orden</h2>
+             <div id="resumen-detalle">
+             <p>Subtotal: <span id="carrito-subtotal">C$ 0.00</span></p>
+             <p>Costo de Servicio: <span id="carrito-servicio">C$ 0.00</span></p>
+        
+             <p>Descuento: <span id="carrito-descuento">C$ 0.00</span></p>
+        
+             <hr>
+             <p class="total">Total a Pagar: <span id="carrito-total">C$ 0.00</span></p>
+             </div>
+             <button class="btn-checkout" id="btn-procesar-pago" disabled>Procesar Pago</button>
+           </div>
+        </div>
+
+    </main>
+
+    <script src="../js/utilidades/carrito_utilidades.js"></script> 
+    <script src="../js/carrito.js"></script> 
+    <script src="../js/index.js"></script> 
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recibo de Compra | Cashfood</title>
+    <link rel="stylesheet" href="../css/index.css">
+    <link rel="icon" type="image/png" href="../imagenes/Logo/Cashfood.png">
+    <link rel="stylesheet" href="../css/carrito.css"> <style>
+        /* Estilos específicos para la página de recibo */
+        .recibo-contenedor {
+            width: 100%;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .recibo-cabecera { text-align: center; margin-bottom: 25px; }
+        .recibo-cabecera h1 { font-size: 2.2em; color: #162938; }
+        .recibo-info p { margin: 5px 0; font-size: 1em; }
+        .recibo-items { margin-top: 20px; border-top: 1px dashed #ccc; padding-top: 15px; }
+        .item-recibo { display: flex; justify-content: space-between; padding: 5px 0; font-size: 0.95em; }
+        .recibo-totales { margin-top: 20px; border-top: 2px solid #162938; padding-top: 15px; }
+        .recibo-totales p { display: flex; justify-content: space-between; font-weight: bold; }
+        .recibo-final { text-align: center; margin-top: 30px; }
+        .recibo-final h3 { color: #f9a03f; }
+        
+        /* Ajuste para que se vea bien con el header */
+        .seccion-recibo {
+            padding-top: 120px; 
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        </header>
+
+    <main class="seccion-recibo">
+        <div class="recibo-contenedor" id="recibo-contenedor">
+            <p style="text-align: center;">Cargando recibo...</p>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button class="btn-checkout" onclick="window.print()" style="width: auto;">Imprimir/Guardar Recibo</button>
+            <a href="../index.html" class="btn-volver" style="display: block; margin-top: 15px;">← Volver al Inicio</a>
+        </div>
+    </main>
+
+    <script src="../js/index.js"></script> 
+    <script src="../js/utilidades/carrito_utilidades.js"></script>
+    <script src="../js/recibo.js"></script> </body>
+</html>

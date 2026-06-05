@@ -1,0 +1,682 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+:root {
+  /* Paleta basada en tu Logo */
+  --color-primary: #D9381E; /* Rojo Ketchup */
+  --color-secondary: #FFD700; /* Amarillo Mostaza/Dolar */
+  --color-bg: #F4F4F4;      /* Fondo grisaceo */
+  --color-card: #FFFFFF;    /* Fondo blanco para items */
+  --color-text: #333333;    /* Gris oscuro para lectura */
+  --color-price: #2a9d8f;   /* Opcional: Verde para dinero, o usa el amarillo */
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: sans-serif; /* Cambia por una fuente moderna como 'Poppins' o 'Roboto' */
+}
+
+/* Ejemplo de Botón */
+.btn-ordenar {
+  background-color: var(--color-primary);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px; /* Bordes redondeados se ven mas amigables */
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ---------------------------------------------------- */
+/* --- ESTILOS BASE (PC y por defecto) --- */
+/* ---------------------------------------------------- */
+
+header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* Dejamos el padding de PC amplio */
+    padding: 20px 100px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+}
+
+.logoCashfood {
+    width: 80px;
+    height: 80px;
+}
+
+/* Realce para el logo: separarlo del fondo claro con sombra y bordes suaves */
+.logoCashfood {
+    border-radius: 10px;
+    padding: 6px; /* pequeño margen blanco alrededor del logo */
+    background: #fff; /* asegura un fondo limpio */
+    box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: transform .18s ease, box-shadow .18s ease;
+}
+.logoCashfood:hover {
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 14px 36px rgba(0,0,0,0.18);
+}
+
+.navegacion {
+    display: flex; 
+    align-items: center;
+}
+
+.navegacion a {
+    position: relative;
+    font-size: 1.6em; /* ¡Ajuste de PC! Aumentamos la fuente */
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navegacion a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background-color: var(--color-secondary);
+    border-radius: 5px;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.5s;
+}
+
+.navegacion a:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navegacion .btnlogin-popup {
+    width: 150px; /* ¡Ajuste de PC! Aumentamos el ancho */
+    height: 50px;
+    background: transparent;
+    border: 2px solid var(--color-text);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2em; /* ¡Ajuste de PC! Aumentamos la fuente */
+    color: var(--color-text);
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navegacion .btnlogin-popup:hover {
+    background-color: #fff;
+    color: var(--color-secondary);
+}
+
+/* Estilos para el botón de Salir/Cerrar Sesión (heredados del login) */
+.navegacion .btnlogout-popup,
+.btn-logout,
+.btn-salir,
+.btn-salir-popup,
+.btn-logout-popup {
+    width: 150px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid var(--color-text);
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.2em;
+    color: var(--color-text);
+    font-weight: 500;
+    margin-left: 12px;
+    transition: transform .25s ease, background-color .25s ease, color .25s ease, box-shadow .25s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.navegacion .btnlogout-popup:hover,
+.btn-logout:hover,
+.btn-salir:hover,
+.btn-salir-popup:hover,
+.btn-logout-popup:hover {
+    background-color: #fff;
+    color: var(--color-secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+}
+
+/* --- Botón desplegable (3 puntos) y menú --- */
+.navegacion { position: relative; }
+.nav-more {
+    position: relative;
+    display: inline-block;
+    margin-left: 12px;
+    margin-left: auto; /* Empuja el botón al extremo derecho dentro de .navegacion */
+}
+
+.btn-more {
+    width: 50px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid var(--color-text);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.6em;
+    color: var(--color-text);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform .25s cubic-bezier(.2,.8,.2,1), box-shadow .2s ease, background-color .2s ease, color .2s ease;
+}
+
+.btn-more:hover {
+    background-color: #fff;
+    color: var(--color-secondary);
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+.btn-more[aria-expanded="true"] {
+    transform: rotate(90deg) scale(1.03);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.16);
+}
+
+.dropdown-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    min-width: 180px;
+    background: rgba(255,255,255,0.98);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    padding: 8px;
+    z-index: 200;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-8px) scale(0.98);
+    transition: opacity .18s ease, transform .18s ease, visibility .18s;
+}
+
+.dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+    /* ligera escala para dar sensación de profundidad en desktop */
+    transform: translateY(0) scale(1.03);
+    box-shadow: 0 16px 48px rgba(0,0,0,0.22);
+}
+
+/* Evitar escala en móviles (override dentro de la media query para mobile) */
+@media (max-width: 768px) {
+    .dropdown-menu.show {
+        transform: translateY(0) scale(1);
+        box-shadow: 0 -12px 40px rgba(0,0,0,0.28);
+    }
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #162938;
+    background: transparent;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+    background: rgba(255,215,0,0.12);
+}
+
+/* --- ESTILOS DEL POPUP DE LOGIN (PC) --- */
+.contenedor {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    z-index: 100;
+
+    width: 500px; /* ANCHO DE PC */
+    height: 500px;
+    overflow: hidden;
+
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, .5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform .5s ease, height .2s ease;
+}
+
+.contenedor.active {
+    height: 580px; /* Altura para el formulario de registro */
+}
+
+.contenedor.active-popup {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.contenedor .form-contenedor {
+    width: 100%;
+    padding: 24px;
+    max-height: calc(100vh - 140px);
+    overflow-y: auto; /* Permite scroll dentro del popup si hay muchos campos */
+}
+
+.contenedor .form-contenedor.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.contenedor.active .form-contenedor.login {
+    transition: none;
+    transform: translateX(-500px); /* Desplazamiento para PC (500px) */
+}
+
+.contenedor .form-contenedor.register {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+    transform: translateX(100%);
+    transition: none;
+}
+
+.contenedor.active .form-contenedor.register {
+    transform: translateX(0);
+    transition: transform 0.5s;
+}
+
+.contenedor .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50px;
+    height: 50px;
+    background: #162938;
+    color: #fff;
+    font-size: 2em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-contenedor h2 {
+    font-size: 2em;
+    color: #162938;
+    text-align: center;
+}
+
+.input-contenedor {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid #162938;
+    margin: 30px 0;
+}
+
+.input-contenedor label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #162938;
+    font-size: 1em;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-contenedor input:focus ~ label,
+.input-contenedor input:not(:placeholder-shown) ~ label {
+    top: -5px;
+}
+
+.input-contenedor input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 600;
+    padding: 0 35px 0 5px;
+}
+
+.input-contenedor .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: #162938;
+    line-height: 57px;
+}
+
+.recuerdame-meolvidaste {
+    font-size: .9em;
+    color: #162938;
+    font-weight: 500;
+    margin-bottom: 15px; 
+    display: flex;
+    justify-content: space-between;
+}
+
+.recuerdame-meolvidaste label input {
+    accent-color: #162938;
+    margin-right: 3px;
+}
+
+.recuerdame-meolvidaste a {
+    color: #162938;
+    text-decoration: none;
+}
+
+.recuerdame-meolvidaste a:hover {
+    text-decoration: underline;
+}
+
+.btn {
+    width: 100%;
+    height: 50px;
+    background-color: var(--color-primary);
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+}
+
+/* Estilo para botón saludo (Hola, nombre) */
+.btn-saludo {
+    background: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: default;
+}
+
+.login-register {
+    font-size: .9em;
+    color: #162938;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    text-decoration: none;
+    color: #162938;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+/* --- Estilos para la Nueva Sección de Quioscos --- */
+.seccion-quioscos {
+    width: 100%;
+    max-width: 1200px;
+    padding: 120px 20px 40px 20px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin: 0 auto; 
+}
+
+.titulo-principal {
+    font-size: 2.5em;
+    color: var(--color-text); 
+    margin-bottom: 50px;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.quioscos-contenedor {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.quiosco-tarjeta {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.quiosco-tarjeta:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+.quiosco-imagen {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 3px solid var(--color-secondary);
+}
+
+.quiosco-nombre {
+    font-size: 1.5em;
+    color: #162938;
+    margin-bottom: 20px;
+}
+
+.btn-ver-menu {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-secondary);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 600;
+    transition: background-color 0.18s ease;
+}
+
+.btn-ver-menu:hover {
+    background-color: #e6b000;
+}
+
+body {
+    display: block;
+    min-height: 100vh;
+   /* background: url('../imagenes/fondo.jpg') no-repeat;    background-size: cover; */
+   background-color: var(--color-bg);
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Estilos para el Ícono y Contador del Carrito */
+.btn-carrito {
+    position: relative;
+    font-size: 4em; /* Hace el ícono grande */
+    color: #162938; /* Color oscuro */
+    margin-right: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.btn-carrito:hover {
+    color: var(--color-secondary); /* Color al pasar el ratón */
+}
+
+#contador-carrito {
+    position: absolute;
+    top: -5px; /* Ajusta la posición verticalmente */
+    right: -10px; /* Ajusta la posición horizontalmente */
+    background-color: var(--color-secondary); /* Color naranja de acento */
+    color: white;
+    font-size: 0.5em; /* Tamaño pequeño del número */
+    font-weight: bold;
+    border-radius: 50%; /* Lo hace circular */
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Asegura que el clic pase al ícono */
+}
+
+/* ------------------------------------------------ */
+/* --- MEDIA QUERIES PARA MÓVILES (MÁXIMO 768px) --- */
+/* ------------------------------------------------ */
+
+@media (max-width: 768px) {
+    /* === 1. ARREGLO DE HEADER Y NAVEGACIÓN (Eliminar Scroll) === */
+    header {
+        /* CRUCIAL: Reducimos el padding de los lados al mínimo */
+        padding: 10px 5px; 
+        display: flex; 
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .logoCashfood {
+        width: 50px; /* Logo AÚN más pequeño */
+        height: 50px;
+    }
+    
+    .navegacion a {
+        /* Usamos píxeles y márgenes muy pequeños para compactar */
+        font-size: 13px; 
+        margin-left: 5px; 
+    }
+    
+    .navegacion .btnlogin-popup {
+        width: 60px; /* Botón más estrecho */
+        height: 25px; /* Botón más bajo */
+        font-size: 11px; /* Texto del botón muy pequeño */
+        margin-left: 5px;
+        border: 1px solid var(--color-text); /* Borde más fino */
+    }
+
+    /* === 2. ARREGLO DE LOGIN POPUP === */
+    .contenedor {
+        width: 90%; 
+        min-width: 300px;
+        padding: 20px 10px;
+    }
+    
+    .contenedor.active .form-contenedor.login{
+     transition: none;
+    /* Desplazamiento correcto para el ancho del 90% */
+    transform: translateX(-100%); 
+    }
+    
+    /* === 3. ARREGLO DE QUIOSCOS === */
+    .seccion-quioscos {
+ padding: 80px 15px 40px 15px; /* Ajuste para el header más compacto */
+ }
+
+    .titulo-principal {
+        font-size: 1.8em;
+    }
+
+.quioscos-contenedor {
+ grid-template-columns: 1fr; 
+ gap: 20px;
+ }
+    
+    .quiosco-imagen {
+ height: 150px; 
+ }
+    /* === 4. Ajustes específicos para el botón desplegable en móvil === */
+    .nav-more {
+        margin-left: auto; /* asegurar extremo derecho */
+    }
+
+    .btn-more {
+        width: 44px;
+        height: 44px;
+        font-size: 1.2em;
+        border-width: 2px;
+        padding: 6px;
+    }
+
+    /* En móvil, mostrar el menú como bottom-sheet a pantalla completa (o casi) */
+    .dropdown-menu {
+        position: fixed !important;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        min-height: 40vh;
+        max-height: 80vh;
+        margin: 0 auto;
+        width: 100%;
+        max-width: 100vw;
+        border-radius: 12px 12px 0 0;
+        padding: 12px 10px;
+        box-shadow: 0 -12px 40px rgba(0,0,0,0.28);
+        transform: translateY(100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: transform .28s ease, opacity .18s ease, visibility .18s;
+        overflow: auto;
+    }
+
+    .dropdown-menu.show {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .dropdown-menu a,
+    .dropdown-menu button {
+        padding: 14px 16px;
+        font-size: 1rem;
+    }
+
+    /* Overlay cuando el sheet está abierto */
+    body.sheet-open::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.36);
+        z-index: 190;
+        backdrop-filter: blur(2px);
+    }
+}
